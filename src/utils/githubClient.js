@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const BASE = process.env.GITHUB_API_BASE || 'https://api.github.com';
 const TOKEN = process.env.GITHUB_TOKEN || null; 
-console.log("token:",TOKEN)
+// console.log("token:",TOKEN)
 
 const instance = axios.create({
   baseURL: BASE,
