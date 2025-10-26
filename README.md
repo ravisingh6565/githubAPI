@@ -1,3 +1,4 @@
+<<<<<<< HEAD
  # GitHub Backend  
 
 This project is an Express.js backend   that proxies GitHub REST & GraphQL APIs for repository management.
@@ -163,3 +164,6 @@ GET /api/repos/:owner/:repo/actions/secrets
 - This backend is **production-ready, modular, and easily extendable**.
 
 EOF
+=======
+# githubAPI
+>>>>>>> e751ed844bdeeb94ba27c1e64002d1c7029895a6
