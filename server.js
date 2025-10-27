@@ -1,3 +1,7 @@
+// add imports near top of server.js
+import swaggerUi from 'swagger-ui-express';
+import swaggerSpec from './swagger.js'; // relative path from server.js
+
 import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
@@ -14,6 +18,21 @@ app.use(express.json({ limit: '2mb' }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(morgan('dev'));
+
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, {
+  explorer: true,
+  swaggerOptions: {
+    persistAuthorization: true
+  }
+}));
+
+// optional: serve raw JSON
+app.get('/swagger.json', (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+  res.send(swaggerSpec);
+});
+
 
 app.use('/api/repos', repoRoutes);
 app.use('/api/graphql', graphqlRoutes);
